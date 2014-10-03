@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='rtfmApp'>
+	<head>
+		<link rel='stylesheet' ref='style/mainStyle.css'>
+	</head>
+	<body ng-controller='mainControl'>
+		<div class='container' ng-view></div>
+
+
+
+		<!-- Scripts -->
+		<!-- Env -->
+		<script src='app/env.js'></script> 
+
+		<!-- CDNs: angular, angular-route, firebase, and angularfire -->
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js'></script>
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js'></script>
+		<script src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script> 
+		<script src="//cdn.firebase.com/libs/angularfire/0.8.0/angularfire.js"></script>
+
+		<!-- My Scripts. app: rtfmApp, mainControl, EnvironmentService;  pages: loginControl -->
+		<script src='app/rtfmApp.js'></script>
+		<script src='app/mainControl.js'></script>
+		<script src='app/EnvironmentService.js'></script>
+		<script src='pages/login/loginControl.js'></script>
+
+	</body>
+</html>

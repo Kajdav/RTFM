@@ -4,6 +4,8 @@
 		<link rel='stylesheet' ref='style/mainStyle.css'>
 	</head>
 	<body ng-controller='mainControl'>
+		<a href='#/login'>Login</a>
+		<a href='#/threads'>View Threads</a>
 		<div class='container' ng-view></div>
 
 
@@ -18,11 +20,13 @@
 		<script src="//cdn.firebase.com/js/client/1.0.17/firebase.js"></script> 
 		<script src="//cdn.firebase.com/libs/angularfire/0.8.0/angularfire.js"></script>
 
-		<!-- My Scripts. app: rtfmApp, mainControl, EnvironmentService;  pages: loginControl -->
+		<!-- My Scripts. app: rtfmApp, mainControl, EnvironmentService;  pages: loginControl, threadsControl, threadsService, threadControl -->
 		<script src='app/rtfmApp.js'></script>
 		<script src='app/mainControl.js'></script>
 		<script src='app/EnvironmentService.js'></script>
 		<script src='pages/login/loginControl.js'></script>
-
+		<script src='pages/threads/threadsControl.js'></script>
+		<script src='pages/threads/threadsService.js'></script>
+		<script src='pages/thread/threadControl.js'></script>
 	</body>
 </html>

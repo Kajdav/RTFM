@@ -7,14 +7,38 @@ app.config(function($routeProvider){
 			controller: 'loginControl'
 		})
 		.when('/threads', {
-			templateUrl: '/pages/threads.html',
-			controller: 'threadsControl'
+			templateUrl: '/pages/threads/threads.html',
+			controller: 'threadsControl',
+			resolve: {
+				threadsRef: function(threadsService) {
+					return threadsService.getThreads();
+				}
+			}
 		})
-		.when('/threads/:threadId', {
-			templateUrl: '/pages/thread.html',
-			controller: 'threadControl'
+		.when('/thread/:threadId', {
+			templateUrl: '/pages/thread/thread.html',
+			controller: 'threadControl',
+			resolve: {
+				threadRef: function(threadsService, $route) {
+					return threadsService.getThread($route.current.params.threadId);
+				},
+				commentsRef: function(threadsService, $route) {
+					return threadsService.getComments($route.current.params.threadId);
+				}
+			}
 		})
 		.otherwise({
 			redirectTo: '/login'
 		})
+})
+
+app.run(function($rootScope,  $route, $location, $routeParams, EnvironmentService){
+	$rootScope.$on('$routeChangeStart', function(event, next, current){
+		if (EnvironmentService.getUserName()) {
+			$rootScope.username = EnvironmentService.getUserName();
+		}
+		else {
+			$location.path('/login');
+		}
+	})
 })

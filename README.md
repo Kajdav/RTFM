@@ -117,7 +117,7 @@ A problem we're going to run into as we're setting up our routing is sometimes w
 is how you tell angular to listen for certain events. So in side your .run block, tell angular to listen for the '$routeChangeStart' event and pass it a callback function with a 'event', 'next', and 'current' parameter. As you can imagine, 'event' is the event that's happening, 'next' is the route the application is going to, and 'current' is the current route the application is on.
 4. Inside your callback, check to see if ```EnvironmentService.getUserName()''' returns a truthy value, if it doesn't that means the user hasn't been created - which means we need to redirect the user to the login page IE $location.path('/login'). If it does, set a property on $rootScope (for now) of username with the value being what getUserName returned.
 
-## Step 4: Create a Thread Service and Use Firebase Refs
+## Step 6: Create a Thread Service and Use Firebase Refs
 
 1. Create a ThreadService and put it the appropriate folder.
 2. Create methods named ```getThreads``` and ```getThread``` to generate AngularFire references to all threads and any
@@ -194,7 +194,7 @@ thread.$save();
 
 Notice that we you could set the object property ```thread.title``` just as you would any JS object.
 
-### Step 5: Set up Threads view
+### Step 7: Set up Threads view
 
 1. Let's set up ```threads.html``` with a list of threads, an input and a button to create a new thread, and links to
 each thread's unique page.
@@ -245,7 +245,7 @@ angular.module('rtfmApp')
   });
 ```
 
-### Step 6: Set Up Individual Thread Views
+### Step 8: Set Up Individual Thread Views
 
 1. Create a ```ThreadCtrl``` and a ```thread.html```
 2. Add the new controller and view to the ```thread``` state in ```app.js```. Also create a resolve for ```thread```
